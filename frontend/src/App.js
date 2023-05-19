@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Contact from "./component/Contact";
 import Home from "./component/Home";
 import Login from "./component/Login";
-import Registation from "./Registation";
+import Registation from "./component/Registation";
 
 
 const About = () => {
@@ -45,7 +45,7 @@ const App = () => {
       </Route>
 
       <Route path="/login">
-        <Login />
+        <Login/>
       </Route>
 
       <Route exact path="/regisiter">
