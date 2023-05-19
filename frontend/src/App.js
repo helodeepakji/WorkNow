@@ -1,21 +1,59 @@
-
-import './App.css';
-import Footer from './Components/Footer';
-import React from 'react';
-import { NavLink,Route, Routes } from 'react-router-dom';
-import Reg from './Components/Reg';
-
-
-// Your code here
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Contact from "./component/Contact";
+import Home from "./component/Home";
+import Login from "./component/Login";
+import Registation from "./Registation";
 
 
-function App() {
+const About = () => {
   return (
-    
-       <div className='container'>
-        <Reg></Reg>
-       </div>
+      <section className="hero-section">
+        <p>Welcome to </p>
+        <h1> About Page</h1>
+      </section>
   );
-}
+};
+
+const Service = () => {
+  return (
+      <section className="hero-section">
+        <p>Welcome to </p>
+        <h1> Service Page</h1>
+      </section>
+  );
+};
+
+
+const App = () => {
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+
+      <Route path="/about">
+        <About />
+      </Route>
+
+      <Route path="/service">
+        <Service />
+      </Route>
+
+      <Route path="/contact">
+        <Contact />
+      </Route>
+
+      <Route path="/login">
+        <Login />
+      </Route>
+
+      <Route exact path="/regisiter">
+        <Registation />
+      </Route>
+
+    </Switch>
+  );
+};
 
 export default App;

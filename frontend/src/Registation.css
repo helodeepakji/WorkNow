@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --main-blue: #71b7e6;
+  --main-purple: #ab0909;
+  --main-grey: #ccc;
+  --sub-grey: #d9d9d9;
+}
+
+    .boxi{
+        background-image: url('image/regisiter.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .regisiterform {
+        margin: 100px;
+        max-width: 700px;
+        width: 100%;
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
+    }
+
+    .regisiterform .title {
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
+    }
+
+    .regisiterform .title::before {
+        content: "";
+        position: absolute;
+        height: 3.5px;
+        width: 30px;
+        background: linear-gradient(62deg, #000000, #8d0e23);
+        left: 0;
+        bottom: 0;
+    }
+
+.regisiterform form .user__details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+/* inside the form user details */
+form .user__details .input__box {
+  width: calc(100% / 2 - 20px);
+  margin-bottom: 15px;
+}
+
+.user__details .input__box .details {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+    .user__details .input__box input,
+    .user__details .input__box select{
+        height: 45px;
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid var(--main-grey);
+        padding-left: 15px;
+        font-size: 16px;
+        border-bottom-width: 2px;
+        transition: all 0.3s ease;
+    }
+
+.user__details .input__box input:focus,
+.user__details .input__box input:valid {
+  border-color: #ab0909;
+}
+
+/* inside the form gender details */
+
+form .gender__title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .category {
+  display: flex;
+  width: 80%;
+  margin: 15px 0;
+  justify-content: space-around;
+}
+ .category label {
+  display: flex;
+  align-items: center;
+}
+ .category .dot {
+  height: 18px;
+  width: 18px;
+  background: var(--sub-grey);
+  border-radius: 50%;
+  margin: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .category .one,
+#dot-2:checked ~ .category .two,
+#dot-3:checked ~ .category .three {
+  border-color: var(--sub-grey);
+  background: #ab0909;
+}
+
+form input[type="radio"] {
+  display: none;
+}
+
+/* submit button */
+form .button {
+  height: 45px;
+  margin: 30px 50px;
+}
+
+
+form .button input {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+        background: linear-gradient(62deg, #000000, #8d0e23);
+        transition: all 0.3s ease;
+    }
+    
+    form .button input:hover {
+        background: linear-gradient(272deg, #f30000, #8d0e23);
+    }
+    
+@media only screen and (max-width: 584px) {
+    .regisiterform {
+        max-width: 100%;
+        margin: 100px 15px;
+    }
+    
+    form .user__details .input__box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    
+    form .category {
+        width: 100%;
+    }
+    
+    form .button {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .user__details::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+.typimg::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.typimg::before {
+    content: 'Select Profile image';
+    display: inline-block;
+    border-radius: 3px;
+    padding: 10px 50px;
+    outline: none;
+    white-space: nowrap;
+    /* -webkit-user-select: none; */
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+  }
+
+.hidden{
+    display: none !important;
+}
