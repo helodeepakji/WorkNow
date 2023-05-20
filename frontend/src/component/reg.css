@@ -1,0 +1,222 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100wh;
+    
+    
+    background-repeat: no-repeat
+    
+  }
+  /* 
+  .foot{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(5, 5, 87);
+    height: 50%;
+  }
+  .title-footer{
+    margin: auto;
+    width: 50vh;
+    height: 100px;
+    width: 400px;
+    padding: 0px 30px;
+    /* color:  rgb(39,39,143); */
+    /* text-decoration: underline;
+    text-decoration-color: rgb(90,138,227);  */
+    /* margin-left: 35%;
+    color: rgb(173, 187, 215);
+    
+  }
+  .rest-footer{
+    display: flex;
+    justify-content: space-between;
+   background-color: rgb(5, 5, 87);; */
+   /* width: 800px;
+   margin: auto;
+   padding: 4px 4px;
+   color: rgb(173, 187, 215);
+    
+  }
+  @media screen and (max-width: 810px) {
+    .rest-footer {
+      flex-direction: column;
+      margin-left: 50%;
+    }
+    .rest-footer h5{
+      margin-left: 3%;
+      
+    }
+  } */ 
+  
+  /* 
+  .main{
+    background:url("../public/image/lb1.jpg");
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    width: 280px;
+    
+  }
+  .div{
+    width: 250px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  } */
+  
+  
+  .abcde{
+    height: 400px;
+    width: 550px;
+    background: linear-gradient(rgba(255, 192, 203, 0.346),rgba(255, 166, 0, 0.314),rgba(210, 206, 210, 0.147));
+    /* background-color:  linear-gradient(pink,orange,rgb(162, 45, 162)); */
+    /* position: absolute; */
+    left: 50%;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+    color:white;
+    margin-left:100px;
+  }
+  .items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* .jh{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  } */
+  .cls{
+    margin-bottom: 10px;
+    color: white;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffac33;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    margin-left: 43%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #751b75;
+  }
+  
+  .btn:active {
+    background-color: #4d0b5e;
+  }
+  .btns{
+    height: 50px;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-right: 20px; 
+  }
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #7c5cff;
+    box-shadow: 0 0 5px #7c5cff;
+  }
+  span{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+  }
+  body{
+   
+    background-image: url("C:\Users\HP\Desktop\new_work\WorkNow\frontend\src\component\image\labour.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  h1 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  h1::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #7c5cff; /* Change to your preferred color */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  h1:hover::after {
+    transform: scaleX(1);
+  }
+  .abcde {
+    /* box-shadow: 6px 6px 6px white; */
+  }
+  /* input[type="radio"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 5px;
+  } */
+  
+  
+  
+  input[type="radio"]:checked {
+    background-color: #ab3892;
+    border-color: #ffad3e;
+   
+  }
+  .xyz{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+  
+  }
+  
