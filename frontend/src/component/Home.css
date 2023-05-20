@@ -134,11 +134,11 @@
     font-size: 20px;
     padding: 20px;
     color: white;
-    background: #951d30;
-    border: 2px solid #951d30;
     margin: 50px 10px 100px 10px;
     cursor: pointer;
     border-radius: 5px;
+    border: 2px solid #8c8b8c;
+    background: linear-gradient(to right, #fd0624, #ff5b5b, #0f00f9);
 }
 
 a.regi:hover{
