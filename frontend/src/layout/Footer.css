@@ -13,6 +13,16 @@
     background : white;
     line-height: 1.5;
   }
+
+  footer h1{
+    font-family: 'Raleway', sans-serif;
+    background-image: linear-gradient(to right, #fd0624, #ff5b5b, #0100ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+  }
+
   footer a {
     text-decoration: none;
   }

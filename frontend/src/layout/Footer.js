@@ -32,12 +32,12 @@ function Footer() {
                     </ul>
                 </div>
                 <div className="ft-main-item">
-                    <img src="http://s3.amazonaws.com/wp.shaadi.com/blog.shaadi.com/prod/uploads/2015/09/New-Shaadi-Logo2.jpg" width="120px" alt="" />
-                        <p>Get free updates before others do!</p>
-                        <form className="formf">
-                            <input type="email" name="email" placeholder="Enter email address" />
-                                <input type="submit" value="Subscribe" />
-                        </form>
+                    <h1>WorkNOW</h1>
+                    <p>Get free updates before others do!</p>
+                    <form className="formf">
+                        <input type="email" name="email" placeholder="Enter email address" />
+                            <input type="submit" value="Subscribe" />
+                    </form>
                 </div>
             </section>
 

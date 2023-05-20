@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 * {
     padding: 0;
     font-family: 'PT Sans', sans-serif;
@@ -22,6 +22,7 @@ nav {
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    padding: 15px 0;
 }
 
 nav .navlef {
@@ -81,6 +82,14 @@ nav .navrig .profile {
 nav .navlef .logo span,
 .cancel-btn {
     display: none;
+}
+
+nav .logo h1{
+    font-family: 'Raleway', sans-serif;
+    background-image: linear-gradient(to right, #fd0624, #ff5b5b, #0100ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 @media (max-width: 850px) {

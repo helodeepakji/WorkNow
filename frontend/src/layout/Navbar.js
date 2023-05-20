@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="navlef">
           <div className="logo">
             <span className="material-symbols-outlined menu-btn" onClick={()=> setShowMenu(true)}>menu</span>
-            <img src="http://s3.amazonaws.com/wp.shaadi.com/blog.shaadi.com/prod/uploads/2015/09/New-Shaadi-Logo2.jpg" width="120px" alt="" />
+            <h1>WorkNOW</h1>
           </div>
           <div className={ShowMenu ? "opt show" : "opt" }>
             <span className={ShowMenu ? "material-symbols-outlined cancel-btn close" : "material-symbols-outlined cancel-btn" } onClick={()=> setShowMenu(false)}>close</span>
