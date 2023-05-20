@@ -6,6 +6,7 @@ body {
     
     
     background-repeat: no-repeat
+    
   }
   /* 
   .foot{
@@ -85,7 +86,7 @@ body {
   .abcde{
     height: 400px;
     width: 550px;
-    background: linear-gradient(pink,orange,rgb(162, 45, 162));
+    background: linear-gradient(rgba(255, 192, 203, 0.346),rgba(255, 166, 0, 0.314),rgba(210, 206, 210, 0.147));
     /* background-color:  linear-gradient(pink,orange,rgb(162, 45, 162)); */
     /* position: absolute; */
     left: 50%;
@@ -93,6 +94,8 @@ body {
     display: flex;
     flex-direction: column;
     padding: 0px 40px;
+    color:white;
+    margin-left:100px;
   }
   .items{
     display: flex;
@@ -106,6 +109,7 @@ body {
   } */
   .cls{
     margin-bottom: 10px;
+    color: white;
   }
   .btn {
     display: inline-block;
@@ -156,12 +160,12 @@ body {
     font-family: "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: white;
     text-transform: uppercase;
   }
   body{
    
-    background-image: url("C:\Users\HP\Desktop\work_now\WorkNow\frontend\src\Components\image\lb9.jpg");
+    background-image: url("C:\Users\HP\Desktop\new_work\WorkNow\frontend\src\component\image\labour.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -187,7 +191,7 @@ body {
     transform: scaleX(1);
   }
   .abcde {
-    box-shadow: 6px 6px 6px white;
+    /* box-shadow: 6px 6px 6px white; */
   }
   /* input[type="radio"] {
     appearance: none;
