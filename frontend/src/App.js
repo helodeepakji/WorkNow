@@ -4,6 +4,7 @@ import Contact from "./component/Contact";
 import Home from "./component/Home";
 import Login from "./component/Login";
 import Registation from "./component/Registation";
+import Signup from "./component/Signup";
 
 
 const About = () => {
@@ -50,6 +51,10 @@ const App = () => {
 
       <Route exact path="/regisiter">
         <Registation />
+      </Route>
+
+      <Route exact path="/Signup">
+        <Signup />
       </Route>
 
     </Switch>
