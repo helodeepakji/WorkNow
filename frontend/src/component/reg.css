@@ -1,12 +1,7 @@
 body {
     margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100wh;
-    
-    
+    padding: 0; 
     background-repeat: no-repeat
-    
   }
   /* 
   .foot{
@@ -84,32 +79,32 @@ body {
   
   
   .abcde{
-    height: 400px;
     width: 550px;
     background: linear-gradient(rgba(255, 192, 203, 0.346),rgba(255, 166, 0, 0.314),rgba(210, 206, 210, 0.147));
-    /* background-color:  linear-gradient(pink,orange,rgb(162, 45, 162)); */
-    /* position: absolute; */
     left: 50%;
     top: 15%;
     display: flex;
     flex-direction: column;
-    padding: 0px 40px;
+    padding: 40px;
     color:white;
+    margin: 100px 0;
     margin-left:100px;
   }
   .items{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
   }
-  /* .jh{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  } */
+  
+  .item1,.item2{
+    width: 50%;
+  }
+
   .cls{
     margin-bottom: 10px;
     color: white;
+    height: 70px;
   }
   .btn {
     display: inline-block;
@@ -142,15 +137,17 @@ body {
     justify-content: space-evenly;
     padding-right: 20px; 
   }
-  input {
+  select,input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease;
+    width: 100%;
   }
   
+  select:focus,
   input:focus {
     outline: none;
     border-color: #7c5cff;
@@ -165,7 +162,7 @@ body {
   }
   body{
    
-    background-image: url("C:\Users\HP\Desktop\new_work\WorkNow\frontend\src\component\image\labour.jpg");
+    background-image: url(../component/image/labour.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -190,20 +187,7 @@ body {
   h1:hover::after {
     transform: scaleX(1);
   }
-  .abcde {
-    /* box-shadow: 6px 6px 6px white; */
-  }
-  /* input[type="radio"] {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    outline: none;
-    margin-right: 5px;
-  } */
+  
   
   
   
@@ -216,7 +200,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
-  
+    margin: 10px auto;
   }
   
+
+  .gov_id {
+    height: 110px;
+}
