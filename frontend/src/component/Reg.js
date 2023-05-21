@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import '../component/reg.css'
 
 const sendFormData = (formData) => {
-  fetch('/api/endpoint', {
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+  fetch('/regisiter', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'X-CSRFToken': csrftoken,
     },
     body: JSON.stringify(formData),
   })
