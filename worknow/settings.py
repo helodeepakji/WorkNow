@@ -101,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL='home.Customer'
+AUTH_USER_MODEL='home.User'
 
 
 # Internationalization

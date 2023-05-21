@@ -4,5 +4,7 @@ from django.urls import path
 
 urlpatterns = [
     path('',views.index, name='index'),
-    path('about', views.about, name='about'),
+    path('regisiter',views.regisiter, name='regisiter'),
+    path('regisiter',views.regisiter, name='regisiter'),
+    path('get_csrf_token', views.get_csrf_token, name='get_csrf_token'),
 ]

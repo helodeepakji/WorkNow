@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Contact from "./component/Contact";
 import Home from "./component/Home";
 import Login from "./component/Login";
-import Registation from "./component/Registation";
+import Reg from "./component/Reg";
 import Signup from "./component/Signup";
 
 
@@ -50,7 +50,7 @@ const App = () => {
       </Route>
 
       <Route exact path="/regisiter">
-        <Registation />
+        <Reg />
       </Route>
 
       <Route exact path="/Signup">
