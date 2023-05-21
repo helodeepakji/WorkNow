@@ -1,4 +1,12 @@
+import json
 from django.shortcuts import render
+from django.http import JsonResponse
+from django.middleware.csrf import get_token
+
+def get_csrf_token(request):
+    csrf_token = get_token(request)
+    return JsonResponse({'csrfToken': csrf_token})
+
 
 def index(request):
     return render(request,'index.html')
@@ -8,16 +16,8 @@ def about(request):
 
 def regisiter(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        # Retrieve other form fields
-
-        # Create a new instance of the model and save the data
-        my_form_data = MyFormData(name=name, email=email)
-        my_form_data.save()
-
-        # Return a JSON response indicating success
+        data = json.loads(request.body)
+        print(data)
         return JsonResponse({'message': 'Form data saved successfully'})
 
-    # Return an error response if the request method is not POST
     return render(request,'index.html')

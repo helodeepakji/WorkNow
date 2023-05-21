@@ -1,13 +1,25 @@
 import React, { useState } from 'react'
 import '../component/reg.css'
 
+
+let csrfToken; // Global variable to store the CSRF token
+
+fetch('/get_csrf_token')
+  .then(response => response.json())
+  .then(data => {
+    csrfToken = data.csrfToken; 
+  })
+  .catch(error => {
+    console.error("Failed to retrieve CSRF token:", error);
+  });
+
 const sendFormData = (formData) => {
-  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
   fetch('/regisiter', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-CSRFToken': csrftoken,
+      'X-CSRFToken': csrfToken,
     },
     body: JSON.stringify(formData),
   })
@@ -55,8 +67,8 @@ const Reg = () => {
     sendFormData(formData);
   };
 
-    return (
-      <div class="main">
+  return (
+    <div class="main">
       <form onSubmit={handleSubmit}>
         {step == 1 && (
           <div className='abcde'>
@@ -156,7 +168,7 @@ const Reg = () => {
                   </div>
                   <div className='cls'>
                     <span>PIN CODE</span><br></br>
-                    <input type="Number" name="pincode" placeholder="Your area pincode" value={formData.pincode}  onChange={handleChange}></input>
+                    <input type="Number" name="pincode" placeholder="Your area pincode" value={formData.pincode} onChange={handleChange}></input>
                   </div>
                 </div>
               </div>
@@ -181,7 +193,7 @@ const Reg = () => {
                       <option value="option1">Daily Basis</option>
                       <option value="option2">Hour Basis</option>
                     </select><br></br>
-                    <input type="text" name="salary" placeholder="Your current salary" value={formData.salary}  onChange={handleChange}></input>
+                    <input type="text" name="salary" placeholder="Your current salary" value={formData.salary} onChange={handleChange}></input>
                   </div>
                 </div>
               </div>
@@ -190,18 +202,18 @@ const Reg = () => {
               <div className='btns'>
                 <div>
                   <button className='btn' onClick={() => setStep(1)}>Previous</button></div>
-                  <button className='btn' type="submit">Submit</button>
+                <button className='btn' type="submit">Submit</button>
               </div>
             </div>
           </div>
         )}
-        </form>
-        <div className='textarea'>
-          Best work is Smart Work
-        </div>
-
+      </form>
+      <div className='textarea'>
+        Best work is Smart Work
       </div>
-    )
-  }
 
-  export default Reg
+    </div>
+  )
+}
+
+export default Reg
