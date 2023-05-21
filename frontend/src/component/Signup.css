@@ -4,27 +4,28 @@
 .s1{
   height: 600px;
   width: 100vw;
-  background: url(../component/image/labour.jpg);
+  background: url(../component/image/labour2.jpg);
   background-repeat: no-repeat; 
   background-size: cover; 
   background-position: center;
  
 }
 .s2{
-  height: 551px;
-  width: 800px;
+  height:  500px;
+  width: 400px;
   display: flex;
   justify-content:space-around;
-  background-color: rgba(255, 255, 255, 0.388);
-  position: absolute;
+  background-color: rgba(61, 56, 56, 0.388);
+  /* position: absolute;
   right: 55%;
-  left: 23%;
+  left: 35%;
   top: 20%;
-  bottom: 60%;
+  bottom: 60%; */
+  margin: 10px auto;
 }
 label {
   display: inline-block; 
-  color: #333;
+  color: #fefafa;
   font-size: 16px; 
   margin-bottom: 10px; 
  margin-right: 10px;
@@ -84,14 +85,14 @@ input[type="password"]:focus {
 .attractive-button {
   display: inline-block;
   padding: 10px 20px; 
-  background:linear-gradient(rgb(216, 216, 30),rgb(211, 125, 4),rgb(197, 48, 197));
-  color: #fff; 
+  background:linear-gradient(rgba(216, 216, 30, 0.406),rgba(211, 125, 4, 0.452),rgba(197, 48, 197, 0.498));
+  color: #f5f1f1; 
   font-size: 16px; 
   border: none; 
   border-radius: 5px; 
   margin-left: 20px;
   cursor: pointer; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 2px 4px rgb(52, 236, 67); 
   transition: background-color 0.3s ease; 
 }
 .loginform{
@@ -99,25 +100,16 @@ input[type="password"]:focus {
 }
 .unselected{
   user-select: none;
-  color: rgb(107, 102, 102);
+  color: rgba(31, 30, 30, 0.829);
 }
 
-.loginworker{
-  padding: 30px 0px;
-  background: linear-gradient(rgba(250, 193, 6, 0.534),rgba(236, 239, 39, 0.491),rgba(220, 104, 230, 0.559));
-  height: 546px;
-  width: 800px;
-  color: white;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+
 .loginuser{
   padding: 30px 0px;
   height: 400px;
   width: 800px;
   display: flex;
-  color: black;
+  color: rgb(251, 248, 248);
   align-items: center;
   flex-direction: column;
 }

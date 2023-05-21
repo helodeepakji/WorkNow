@@ -6,6 +6,28 @@
     background-size: cover; 
     background-position: center;
    
+   
+  }
+  .partition{
+    background-color: rgba(0, 0, 0, 0.121);
+    width: 400px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  margin-left: 320px;
+  }
+  .bt{
+    display: inline-block;
+    padding: 10px 20px; 
+    background:linear-gradient(rgba(142, 142, 135, 0.573),rgb(33, 22, 7),rgb(53, 51, 53));
+    color: #fff; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.795); 
+    transition: background-color 0.3s ease; 
   }
   .s2{
     height: 400px;
@@ -18,6 +40,7 @@
     left: 23%;
     top: 20%;
     bottom: 60%;
+   
   }
   label {
     display: inline-block; 
