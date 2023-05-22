@@ -1,25 +1,75 @@
-import './Login.css';
-export default function Login() {
+import React, { useState } from 'react';
+import '../component/Login.css';
+const Signup = () => {
+    const [showFirstDiv, setShowFirstDiv] = useState(true);
+    const toggleDiv1 = () => {
+        setShowFirstDiv(true);
+    };
+    const toggleDiv2 = () => {
+        setShowFirstDiv(false);
+    };
     return (
-        <main>
-            <h1 className="tex">Your search for the perfect match ends here!</h1>
-            <div className="wrapper">
-                <div className="heading">
-                    <h1>Login</h1>
-                </div>
-                <div className="social">
-                    <a href="#" className="social-links"><i className="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" className="social-links"><i className="fa-brands fa-google"></i></a>
-                </div>
-                <form action="login" className="form-group" method="post">
-                    <p className="account-heading">or use your account</p>
-                    <input type="text" name="username" placeholder="username" className="email" />
-                    <input type="password" name="password" placeholder="password" className="passwd" />
-                    <a href="#" className="btn btn-forget">Forget your password?</a>
-                    <a href="regisiter" className="btn btn-forget" >New User click here for Signup</a>
-                    <a href="#"><button className="btn btn-primary" type="submit">log in</button></a>
-                </form>
+        <div className='s1'>
+            <div className='partition'>
+                <div><button className='bt' onClick={toggleDiv1}> For User</button></div>
+                <div><button className='bt' onClick={toggleDiv2}>For Worker</button></div>
             </div>
-        </main>
-    );
+
+            <div className='s2'>
+                {showFirstDiv ? (
+                    <div className='loginuser'>
+                        <div className='loginheader'>
+                            <h1>Login User</h1>
+                        </div>
+                        <div className='unselected'>
+                            <p>Login in with your Account</p>
+                        </div>
+                        <form className='loginform'>
+                            <div className='s3'>
+                                <label>Number</label>
+                                <input type='number' placeholder='Number' required></input>
+                            </div>
+
+                            <div className='s3'>
+                                <label>Password</label>
+                                <input type='password' placeholder='Password' required></input>
+                            </div>
+                            <div>
+                                <button className="attractive-button">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                ) : (
+
+                    <div className='loginworker'>
+                        <div className='labourloginheader'>
+                            <h1>Login Worker</h1>
+                        </div>
+                        <div className='unselected'>
+                            <p>Login in with your Account</p>
+                        </div>
+                        <div className='labourlogidesc'>
+                            <form className='loginform'>
+                                <div className='s3'>
+                                    <label>Number</label>
+                                    <input type='number' placeholder='Number' required></input>
+                                </div>
+
+                                <div className='s3'>
+                                    <label>Password</label>
+                                    <input type='password' placeholder='Password' required></input>
+                                </div>
+                                <div>
+                                    <button className="attractive-button">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+        </div>
+    )
 }
+
+export default Signup
