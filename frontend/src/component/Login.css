@@ -1,37 +1,28 @@
-.s1 {
+.loginmain {
   background: url(../component/image/labour.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  height: 600px;
 }
 
-.partition {
-  background-color: rgba(0, 0, 0, 0.121);
+.loginmain2 {
+  height: 320px;
   width: 400px;
-  height: 90px;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-left: 320px;
-}
-
-.bt {
-  display: inline-block;
-  padding: 10px 20px;
-  background: linear-gradient(rgba(142, 142, 135, 0.573), rgb(33, 22, 7), rgb(53, 51, 53));
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.795);
-  transition: background-color 0.3s ease;
-}
-
-.s2 {
-  display: flex;
-  justify-content: space-around;
+ position: relative;
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.388);
+}
+.loginuser{
+ 
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: baseline;
 }
 
 label {
@@ -112,31 +103,15 @@ input[type="password"]:focus {
   transition: background-color 0.3s ease;
 }
 
+
 .loginform {
   padding-top: 4px;
 }
 
 .unselected {
   user-select: none;
-  color: rgb(107, 102, 102);
+  color: rgb(72, 70, 70);
 }
 
-.loginworker {
-  padding: 30px 0px;
-  background: linear-gradient(rgba(250, 193, 6, 0.534), rgba(236, 239, 39, 0.491), rgba(220, 104, 230, 0.559));
-  height: 400px;
-  width: 800px;
-  color: white;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
 
-.loginuser {
-  padding: 30px 0px;
-  width: 800px;
-  display: flex;
-  color: black;
-  align-items: center;
-  flex-direction: column;
-}
+
