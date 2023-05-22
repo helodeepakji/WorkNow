@@ -1,117 +1,119 @@
-
-
-
-.s1{
-  height: 600px;
-  width: 100vw;
+.phase1 {
   background: url(../component/image/labour2.jpg);
-  background-repeat: no-repeat; 
-  background-size: cover; 
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
- 
+
 }
-.s2{
-  height:  500px;
-  width: 400px;
+
+.phase2 {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   background-color: rgba(61, 56, 56, 0.388);
-  /* position: absolute;
-  right: 55%;
-  left: 35%;
-  top: 20%;
-  bottom: 60%; */
-  margin: 10px auto;
+  margin: auto;
 }
+
+.cl-white{
+  color: white;
+}
+
 label {
-  display: inline-block; 
+  display: inline-block;
   color: #fefafa;
-  font-size: 16px; 
-  margin-bottom: 10px; 
- margin-right: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 label::before {
-  content: ""; 
+  content: "";
   display: inline-block;
-  width: 10px; 
-  height: 10px; 
-  margin-right: 5px; 
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
 }
+
 input[type="text"] {
   padding: 10px;
-  border: 2px solid #ccc; 
+  border: 2px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  color: #333; 
+  color: #333;
 }
 
 input[type="text"]:focus {
   outline: none;
-  border-color: #ff0000; 
-  box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
+  border-color: #ff0000;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
+
 input[type="number"] {
   padding: 10px;
-  border: 2px solid #ccc; 
+  border: 2px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  color: #333; 
+  color: #333;
 }
 
 input[type="number"]:focus {
   outline: none;
-  border-color: #e42dea; 
-  box-shadow: 0 0 5px rgba(243, 43, 200, 0.5); 
+  border-color: #e42dea;
+  box-shadow: 0 0 5px rgba(243, 43, 200, 0.5);
 }
+
 input[type="password"] {
   padding: 10px;
-  border: 2px solid #ccc; 
+  border: 2px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  color: #333; 
-  
+  color: #333;
+
 }
 
 input[type="password"]:focus {
   outline: none;
-  border-color: #f025f0; 
-  box-shadow: 0 0 5px rgba(235, 33, 238, 0.5); 
+  border-color: #f025f0;
+  box-shadow: 0 0 5px rgba(235, 33, 238, 0.5);
 }
-.s3{
+
+.phase3 {
   padding: 6px;
   margin-bottom: 8px;
+  width: 340px;
 }
+
 .attractive-button {
   display: inline-block;
-  padding: 10px 20px; 
-  background:linear-gradient(rgba(216, 216, 30, 0.406),rgba(211, 125, 4, 0.452),rgba(197, 48, 197, 0.498));
-  color: #f5f1f1; 
-  font-size: 16px; 
-  border: none; 
-  border-radius: 5px; 
+  padding: 10px 20px;
+  background: linear-gradient(rgb(216 216 30), rgb(255 155 13), rgb(255 8 255 / 76%));
+  color: #f5f1f1;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
   margin-left: 20px;
-  cursor: pointer; 
-  box-shadow: 0 2px 4px rgb(52, 236, 67); 
-  transition: background-color 0.3s ease; 
+  cursor: pointer;
+  box-shadow: 0px 0px 18px rgb(236 52 52);
+  transition: background-color 0.3s ease;
 }
-.loginform{
+
+.sigupform {
   padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.unselected{
+
+.unselected {
   user-select: none;
   color: rgba(31, 30, 30, 0.829);
 }
 
 
-.loginuser{
+.sigupuser {
   padding: 30px 0px;
-  height: 400px;
   width: 800px;
   display: flex;
   color: rgb(251, 248, 248);
   align-items: center;
   flex-direction: column;
 }
-
-
