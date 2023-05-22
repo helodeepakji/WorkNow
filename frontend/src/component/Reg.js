@@ -45,16 +45,17 @@ const Reg = () => {
     age: '',
     password: '',
     cpassword: '',
-    category: '',
+    category: 'Carpenter',
     language: '',
     area: '',
     city: '',
     state: '',
     pincode: '',
-    salarytype: '',
+    salarytype: 'Daily Basis',
     salary: '',
-    govidtype: '',
+    govidtype: 'Aadhar',
     govid: '',
+    profile: null,
   });
 
   const handleChange = (e) => {
@@ -69,7 +70,7 @@ const Reg = () => {
 
   return (
     <div class="main">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} enctype="multipart/form-data">
         {step == 1 && (
           <div className='abcde'>
             <h1>Registration Form</h1><br></br>
@@ -83,7 +84,7 @@ const Reg = () => {
                   </div>
                   <div className='cls'>
                     <span>Contact</span><br></br>
-                    <input type="text" name="phone" placeholder="Your Phone Number" value={formData.phone} onChange={handleChange}></input>
+                    <input type="number" name="phone" placeholder="Your Phone Number" value={formData.phone} onChange={handleChange}></input>
                   </div>
 
                   <div className='cls'>
@@ -130,8 +131,10 @@ const Reg = () => {
                   <div className='cls'>
                     <span>Category</span><br></br>
                     <select name="category" value={formData.category} onChange={handleChange}>
-                      <option value="option1">Mason</option>
-                      <option value="option2">Carpenter</option>
+                      <option value="Carpenter">Carpenter</option>
+                      <option value="Mason">Mason</option>
+                      <option value="Mobile Repair">Mobile Repair</option>
+                      <option value="Laptop Repair">Laptop Repair</option>
                     </select><br></br>
                   </div>
                 </div>
@@ -168,7 +171,7 @@ const Reg = () => {
                   </div>
                   <div className='cls'>
                     <span>PIN CODE</span><br></br>
-                    <input type="Number" name="pincode" placeholder="Your area pincode" value={formData.pincode} onChange={handleChange}></input>
+                    <input type="number" name="pincode" placeholder="Your area pincode" value={formData.pincode} onChange={handleChange}></input>
                   </div>
                 </div>
               </div>
@@ -177,21 +180,22 @@ const Reg = () => {
                 <div>
                   <div className='cls'>
                     <span>Profile Picture</span><br></br>
-                    <input type="file" placeholder="Your photo" onChange={handleChange}></input>
+                    <input type="file" placeholder="Your photo" name="profile" onChange={handleChange}></input>
                   </div>
                   <div className='cls gov_id'>
                     <span>Govt ID</span><br></br>
                     <select name="govidtype" value={formData.govidtype} onChange={handleChange}>
-                      <option value="option1">Aadhar</option>
-                      <option value="option2"> PAN</option>
+                      <option value="Aadhar">Aadhar</option>
+                      <option value="PAN Card">PAN Card</option>
+                      <option value="Voter Id">Voter Id</option>
                     </select><br></br>
                     <input type="text" name="govid" placeholder="Your id number" value={formData.govid} onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>Salary Type</span><br></br>
                     <select name="salarytype" value={formData.salarytype} onChange={handleChange}>
-                      <option value="option1">Daily Basis</option>
-                      <option value="option2">Hour Basis</option>
+                      <option value="Daily Basis">Daily Basis</option>
+                      <option value="Hour Basis">Hour Basis</option>
                     </select><br></br>
                     <input type="text" name="salary" placeholder="Your current salary" value={formData.salary} onChange={handleChange}></input>
                   </div>
