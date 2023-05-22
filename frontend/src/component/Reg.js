@@ -184,20 +184,20 @@ const Reg = () => {
                   </div>
                   <div className='cls gov_id'>
                     <span>Govt ID</span><br></br>
-                    <select name="govidtype" value={formData.govidtype} onChange={handleChange}>
+                    <select name="govidtype" value={formData.govidtype} required onChange={handleChange}>
                       <option value="Aadhar">Aadhar</option>
                       <option value="PAN Card">PAN Card</option>
                       <option value="Voter Id">Voter Id</option>
                     </select><br></br>
-                    <input type="text" name="govid" placeholder="Your id number" value={formData.govid} onChange={handleChange}></input>
+                    <input type="text" name="govid" required placeholder="Your id number" value={formData.govid} onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>Salary Type</span><br></br>
-                    <select name="salarytype" value={formData.salarytype} onChange={handleChange}>
+                    <select name="salarytype"  required value={formData.salarytype} onChange={handleChange}>
                       <option value="Daily Basis">Daily Basis</option>
                       <option value="Hour Basis">Hour Basis</option>
                     </select><br></br>
-                    <input type="text" name="salary" placeholder="Your current salary" value={formData.salary} onChange={handleChange}></input>
+                    <input type="text" name="salary" required placeholder="Your current salary" value={formData.salary} onChange={handleChange}></input>
                   </div>
                 </div>
               </div>
