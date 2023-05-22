@@ -45,16 +45,17 @@ const Reg = () => {
     age: '',
     password: '',
     cpassword: '',
-    category: '',
+    category: 'Carpenter',
     language: '',
     area: '',
     city: '',
     state: '',
     pincode: '',
-    salarytype: '',
+    salarytype: 'Daily Basis',
     salary: '',
-    govidtype: '',
+    govidtype: 'Aadhar',
     govid: '',
+    profile: null,
   });
 
   const handleChange = (e) => {
@@ -69,7 +70,7 @@ const Reg = () => {
 
   return (
     <div class="main">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} enctype="multipart/form-data">
         {step == 1 && (
           <div className='abcde'>
             <h1>Registration Form</h1><br></br>
@@ -79,22 +80,22 @@ const Reg = () => {
                 <div className='jh'>
                   <div className='cls'>
                     <span>Full Name</span><br></br>
-                    <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange}></input>
+                    <input type="text" name="name" placeholder="Your Name" value={formData.name}  required onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>Contact</span><br></br>
-                    <input type="text" name="phone" placeholder="Your Phone Number" value={formData.phone} onChange={handleChange}></input>
+                    <input type="number" name="phone" required placeholder="Your Phone Number" value={formData.phone} onChange={handleChange}></input>
                   </div>
 
                   <div className='cls'>
                     <span>Password</span><br></br>
-                    <input type="Password" name="password" placeholder="Your Password" value={formData.password} onChange={handleChange}></input>
+                    <input type="Password" name="password" required placeholder="Your Password" value={formData.password} onChange={handleChange}></input>
                   </div>
 
 
                   <div className='cls'>
                     <span>Confirm Password</span><br></br>
-                    <input type="Password" name="cpassword" placeholder="Re-enter Password" value={formData.cpassword} onChange={handleChange}></input>
+                    <input type="Password" name="cpassword" required placeholder="Re-enter Password" value={formData.cpassword} onChange={handleChange}></input>
                   </div>
 
                 </div>
@@ -105,33 +106,35 @@ const Reg = () => {
                   <div className='cls'>
                     <span>Gender</span><br></br>
                     <div className='xyz'> <br></br>
-                      <input type="radio" id="male" value="male" name="gender" checked={formData.gender === 'male'} onChange={handleChange}></input>
+                      <input type="radio" id="male" required value="male" name="gender" checked={formData.gender === 'male'} onChange={handleChange}></input>
                       <label for="male">Male</label>
 
-                      <input type="radio" id="female" value="female" name="gender" checked={formData.gender === 'female'} onChange={handleChange}></input>
+                      <input type="radio" id="female" required value="female" name="gender" checked={formData.gender === 'female'} onChange={handleChange}></input>
                       <label for="female">Female</label>
 
-                      <input type="radio" id="other" value="other" name="gender" checked={formData.gender === 'other'} onChange={handleChange}></input>
+                      <input type="radio" id="other"  required value="other" name="gender" checked={formData.gender === 'other'} onChange={handleChange}></input>
                       <label for="other">Other</label>
                     </div>
                   </div>
 
                   <div className='cls'>
                     <span>Education</span><br></br>
-                    <input type="text" name="education" placeholder="Your Education" value={formData.education} onChange={handleChange}></input>
+                    <input type="text" name="education" required placeholder="Your Education" value={formData.education} onChange={handleChange}></input>
                   </div>
 
                   <div className='cls'>
                     <span>Age</span><br></br>
-                    <input type="number" name="age" placeholder="Your Age" value={formData.age} onChange={handleChange}></input>
+                    <input type="number" name="age" required placeholder="Your Age" value={formData.age} onChange={handleChange}></input>
                   </div>
 
 
                   <div className='cls'>
                     <span>Category</span><br></br>
-                    <select name="category" value={formData.category} onChange={handleChange}>
-                      <option value="option1">Mason</option>
-                      <option value="option2">Carpenter</option>
+                    <select name="category" required value={formData.category} onChange={handleChange}>
+                      <option value="Carpenter">Carpenter</option>
+                      <option value="Mason">Mason</option>
+                      <option value="Mobile Repair">Mobile Repair</option>
+                      <option value="Laptop Repair">Laptop Repair</option>
                     </select><br></br>
                   </div>
                 </div>
@@ -152,23 +155,23 @@ const Reg = () => {
                 <div className='jh'>
                   <div className='cls'>
                     <span>Area</span><br></br>
-                    <input type="text" name="area" placeholder="Your Area of living" value={formData.area} onChange={handleChange}></input>
+                    <input type="text" name="area" required placeholder="Your Area of living" value={formData.area} onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>City</span><br></br>
-                    <input type="text" name="city" placeholder="Your City" value={formData.city} onChange={handleChange}></input>
+                    <input type="text" name="city" required placeholder="Your City" value={formData.city} onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>State</span><br></br>
-                    <input type="text" name="state" placeholder="Your State" value={formData.state} onChange={handleChange}></input>
+                    <input type="text" name="state" required placeholder="Your State" value={formData.state} onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>Language</span><br></br>
-                    <input type="text" name="language" placeholder="Your Language" value={formData.language} onChange={handleChange}></input>
+                    <input type="text" name="language" required placeholder="Your Language" value={formData.language} onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>PIN CODE</span><br></br>
-                    <input type="Number" name="pincode" placeholder="Your area pincode" value={formData.pincode} onChange={handleChange}></input>
+                    <input type="number" name="pincode" required placeholder="Your area pincode" value={formData.pincode} onChange={handleChange}></input>
                   </div>
                 </div>
               </div>
@@ -177,23 +180,24 @@ const Reg = () => {
                 <div>
                   <div className='cls'>
                     <span>Profile Picture</span><br></br>
-                    <input type="file" placeholder="Your photo" onChange={handleChange}></input>
+                    <input type="file" required placeholder="Your photo" name="profile" onChange={handleChange}></input>
                   </div>
                   <div className='cls gov_id'>
                     <span>Govt ID</span><br></br>
-                    <select name="govidtype" value={formData.govidtype} onChange={handleChange}>
-                      <option value="option1">Aadhar</option>
-                      <option value="option2"> PAN</option>
+                    <select name="govidtype"  value={formData.govidtype} required onChange={handleChange}>
+                      <option value="Aadhar">Aadhar</option>
+                      <option value="PAN Card">PAN Card</option>
+                      <option value="Voter Id">Voter Id</option>
                     </select><br></br>
-                    <input type="text" name="govid" placeholder="Your id number" value={formData.govid} onChange={handleChange}></input>
+                    <input type="text" name="govid" required placeholder="Your id number" value={formData.govid} onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>Salary Type</span><br></br>
-                    <select name="salarytype" value={formData.salarytype} onChange={handleChange}>
-                      <option value="option1">Daily Basis</option>
-                      <option value="option2">Hour Basis</option>
+                    <select name="salarytype"  required value={formData.salarytype} onChange={handleChange}>
+                      <option value="Daily Basis">Daily Basis</option>
+                      <option value="Hour Basis">Hour Basis</option>
                     </select><br></br>
-                    <input type="text" name="salary" placeholder="Your current salary" value={formData.salary} onChange={handleChange}></input>
+                    <input type="text" name="salary" required placeholder="Your current salary" value={formData.salary} onChange={handleChange}></input>
                   </div>
                 </div>
               </div>
