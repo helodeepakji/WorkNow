@@ -3,4 +3,5 @@ from .models import *
 # Register your models here.
 admin.site.register(Worker)
 admin.site.register(Address)
-admin.site.register(User)
+admin.site.register(Auth)
+admin.site.register(Customer)
