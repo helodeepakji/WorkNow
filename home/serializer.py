@@ -9,7 +9,6 @@ class RegisterAuthSerializer(serializers.ModelSerializer):
     class Meta:
         model = Auth
         fields = ('username','password','Name','Profile_pic','Gender','Is_worker','Is_customer','cpassword')
-    # returns true if user is worker
 
     def validate(self, attrs):
         error = ''
