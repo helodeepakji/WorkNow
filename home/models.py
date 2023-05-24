@@ -11,8 +11,8 @@ Education_Choices = [
 ]
 
 salary_type = [
-    ('P_D','Per Day'),
-    ('P_H','Per Hour'),
+    ('D_B','Daily Basis'),
+    ('H_B','Hour Basis'),
 ]
 
 gender_choices = [
@@ -20,27 +20,37 @@ gender_choices = [
     ('F','Female'),
     ('O','Other')
 ]
-class User(AbstractUser):
-    Profile_pic = models.ImageField(upload_to='profile_pic/',null=True,blank=True)
-    Phone_number = models.CharField(max_length=10,null=True,blank=True)
+class Auth(AbstractUser):
+    username = models.CharField(max_length=20,unique=True) #phone number
+    Name = models.CharField(max_length=100)
     Gender = models.CharField(max_length=10,choices=gender_choices,null=True,blank=True)
     Is_worker = models.BooleanField(default=False)
-    username = models.EmailField(unique=True,default='')
+    Is_customer = models.BooleanField(default=False)
+    Profile_pic = models.ImageField(upload_to='profile_pic',null=True,blank=True)
+    first_name = None
+    last_name = None
+    email = None
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
 
+
+class Customer(models.Model):
+    Auth_ID = models.ForeignKey(Auth,on_delete=models.CASCADE)
+    Email = models.EmailField(max_length=100,unique=True)
+
+class Worker(models.Model):
+    Auth_ID = models.ForeignKey(Auth,on_delete=models.CASCADE)
+    Education = models.CharField(max_length=100,null=True,blank=True)
+    Age = models.IntegerField()
+    Category = models.CharField(max_length=100)
+    Gov_id_type = models.CharField(max_length=100,default='Aadhar')
+    Gov_id = models.CharField(max_length=20,null=True,blank=True)
+    Salary_type = models.CharField(max_length=100,choices=salary_type)
+    Salary = models.IntegerField(default=0,null=True,blank=True)
 class Address(models.Model):
-    UserID = models.ForeignKey(User,on_delete=models.CASCADE)
+    WorkerID = models.ForeignKey(Worker,on_delete=models.CASCADE)
     Area = models.CharField(max_length=100)
     City = models.CharField(max_length=50)
     State = models.CharField(max_length=50)
     Pincode = models.CharField(max_length=10)
     Default = models.BooleanField(default=False)
-
-class Worker(models.Model):
-    UserID = models.ForeignKey(User,on_delete=models.CASCADE)
-    Education = models.CharField(max_length=100,null=True,blank=True,choices=Education_Choices)
-    Age = models.IntegerField()
-    Category = models.CharField(max_length=100)
-    Gov_id = models.CharField(max_length=12,null=True,blank=True)
-    Salary_type = models.CharField(max_length=100,choices=salary_type)

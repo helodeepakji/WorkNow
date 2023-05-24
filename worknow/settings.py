@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6(@*#b1ai3ive5036qnnmge$8)*ns7av9sdo%jh3$g&bbt%*qr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -101,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL='home.User'
+AUTH_USER_MODEL='home.Auth'
 
 
 # Internationalization
