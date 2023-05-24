@@ -53,7 +53,7 @@ const App = () => {
         <Reg />
       </Route>
 
-      <Route exact path="/Signup">
+      <Route exact path="/signup">
         <Signup />
       </Route>
 

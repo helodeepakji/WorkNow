@@ -15,13 +15,27 @@ fetch('/get_csrf_token')
 
 const sendFormData = (formData) => {
 
+    const auth = {
+        username : formData.phone,
+        password : formData.password,
+        cpassword : formData.cpassword,
+        Profile_pic : formData,
+        Name : formData.name,
+        Email: formData.email,
+        Is_worker : false,
+        Is_customer : true,
+        Gender : formData.gender,
+    };
+
     fetch('/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': csrfToken,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+            Auth:auth
+        }),
     })
         .then((response) => response.json())
         .then((data) => {
@@ -70,7 +84,6 @@ const Signup = () => {
                             <label>Name</label>
                             <input type='text' placeholder='Name' name="name" value={formData.name} onChange={handleChange} required></input>
                         </div>
-
                         <div className='phase3'>
                             <label>Email</label>
                             <input type='Email' placeholder='Email' name="email" value={formData.email} onChange={handleChange} required></input>
