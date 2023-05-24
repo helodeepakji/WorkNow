@@ -7,7 +7,7 @@ let csrfToken; // Global variable to store the CSRF token
 fetch('/get_csrf_token')
   .then(response => response.json())
   .then(data => {
-    csrfToken = data.csrfToken; 
+    csrfToken = data.csrfToken;
   })
   .catch(error => {
     console.error("Failed to retrieve CSRF token:", error);
@@ -15,23 +15,60 @@ fetch('/get_csrf_token')
 
 const sendFormData = (formData) => {
 
-  fetch('/regisiter', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': csrfToken,
-    },
-    body: JSON.stringify(formData),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Handle the response from the Django backend
-      console.log(data);
+  const address = {
+    Area: formData.area,
+    City: formData.city,
+    State: formData.state,
+    Pincode: formData.pincode,
+    Default: true,
+  };
+
+  const worker = {
+    Category: formData.category,
+    Language: formData.language,
+    Salary_type: formData.salarytype,
+    Salary: formData.salary,
+    Govid_type: formData.govidtype,
+    Gov_id: formData.govid,
+    Education: formData.education,
+    Age: formData.age,
+  };
+
+  const auth = {
+    username: formData.phone,
+    password: formData.password,
+    cpassword: formData.cpassword,
+    Profile_pic: formData.profile,
+    Name: formData.name,
+    Is_worker: true,
+    Is_customer: false,
+    Gender: formData.gender,
+  };
+
+    fetch('/regisiter', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken,
+      },
+      // body: JSON.stringify(formData),
+      body: JSON.stringify(
+        {
+          Address: address,
+          Worker: worker,
+          Auth: auth,
+        }
+      ),
     })
-    .catch((error) => {
-      // Handle any errors
-      console.error(error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response from the Django backend
+        console.log(data);
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error(error);
+      });
   console.log(formData);
 };
 
@@ -80,7 +117,7 @@ const Reg = () => {
                 <div className='jh'>
                   <div className='cls'>
                     <span>Full Name</span><br></br>
-                    <input type="text" name="name" placeholder="Your Name" value={formData.name}  required onChange={handleChange}></input>
+                    <input type="text" name="name" placeholder="Your Name" value={formData.name} required onChange={handleChange}></input>
                   </div>
                   <div className='cls'>
                     <span>Contact</span><br></br>
@@ -112,7 +149,7 @@ const Reg = () => {
                       <input type="radio" id="female" required value="female" name="gender" checked={formData.gender === 'female'} onChange={handleChange}></input>
                       <label for="female">Female</label>
 
-                      <input type="radio" id="other"  required value="other" name="gender" checked={formData.gender === 'other'} onChange={handleChange}></input>
+                      <input type="radio" id="other" required value="other" name="gender" checked={formData.gender === 'other'} onChange={handleChange}></input>
                       <label for="other">Other</label>
                     </div>
                   </div>
@@ -184,7 +221,7 @@ const Reg = () => {
                   </div>
                   <div className='cls gov_id'>
                     <span>Govt ID</span><br></br>
-                    <select name="govidtype"  value={formData.govidtype} required onChange={handleChange}>
+                    <select name="govidtype" value={formData.govidtype} required onChange={handleChange}>
                       <option value="Aadhar">Aadhar</option>
                       <option value="PAN Card">PAN Card</option>
                       <option value="Voter Id">Voter Id</option>
@@ -193,7 +230,7 @@ const Reg = () => {
                   </div>
                   <div className='cls'>
                     <span>Salary Type</span><br></br>
-                    <select name="salarytype"  required value={formData.salarytype} onChange={handleChange}>
+                    <select name="salarytype" required value={formData.salarytype} onChange={handleChange}>
                       <option value="Daily Basis">Daily Basis</option>
                       <option value="Hour Basis">Hour Basis</option>
                     </select><br></br>
