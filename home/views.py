@@ -16,6 +16,21 @@ def index(request):
 def about(request):
     return render(request,'index.html')
 
+
+def loginpg(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        print(data)
+        return JsonResponse({'message': 'Form data saved successfully'})
+    return render(request,'index.html')
+
+def signup(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        print(data)
+        return JsonResponse({'message': 'Form data saved successfully'})
+    return render(request,'index.html')
+
 def regisiter(request):
     if request.method == 'POST':
         data = json.loads(request.body)

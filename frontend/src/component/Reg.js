@@ -40,6 +40,7 @@ const sendFormData = (formData) => {
     cpassword: formData.cpassword,
     Profile_pic: formData.profile,
     Name: formData.name,
+    Email: false,
     Is_worker: true,
     Is_customer: false,
     Gender: formData.gender,
