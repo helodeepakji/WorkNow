@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import *
 
@@ -43,6 +44,14 @@ class RegisterAuthSerializer(serializers.ModelSerializer):
         auth.set_password(validated_data['password'])
         auth.save()
         return auth
+    
+    def get_tokens(self, user):
+        tokens = RefreshToken.for_user(user)
+        data = {
+            'refresh': str(tokens),
+            'access': str(tokens.access_token),
+        }
+        return data
     
     def get_id (self):
         id = Auth.objects.get(username=self.validated_data['username']).id
