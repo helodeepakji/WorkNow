@@ -38,13 +38,14 @@ const sendFormData = (formData) => {
     username: formData.phone,
     password: formData.password,
     cpassword: formData.cpassword,
-    Profile_pic: formData.profile,
+    Profile_pic:formData.profile,
     Name: formData.name,
     Email: false,
     Is_worker: true,
     Is_customer: false,
     Gender: formData.gender,
   };
+  console.log(formData.profile.file);
 
     fetch('/regisiter', {
       method: 'POST',
@@ -99,7 +100,8 @@ const Reg = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+// to get file uploaded in form.
+// e.target.files[0];
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send form data to Django backend

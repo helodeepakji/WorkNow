@@ -75,14 +75,14 @@ class register(generics.CreateAPIView):
         }
         
         # to get data from frontend uncomment below lines
-        # temp_data_auth = request.data['Auth']
-        # temp_data_worker = request.data['Worker']
-        # temp_data_address = request.data['Address']
+        temp_data_auth = request.data['Auth']
+        temp_data_worker = request.data['Worker']
+        temp_data_address = request.data['Address']
         
         # testing and comment below lines
-        temp_data_auth = temp_data['Auth']
-        temp_data_worker = temp_data['Worker']
-        temp_data_address = temp_data['Address']
+        # temp_data_auth = temp_data['Auth']
+        # temp_data_worker = temp_data['Worker']
+        # temp_data_address = temp_data['Address']
         
         print('temp_data_auth',temp_data_auth)
         print('temp_data_worker',temp_data_worker)
