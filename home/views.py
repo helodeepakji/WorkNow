@@ -26,8 +26,8 @@ def loginpg(request):
 
 def signup(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
-        print(data)
+        # data = request.body
+        print(request.POST)
         return JsonResponse({'message': 'Form data saved successfully'})
     return render(request,'index.html')
 
@@ -43,6 +43,8 @@ class register(generics.CreateAPIView):
     def get(self,request):
         return render(request,'index.html')
     def post(self,request):
+
+        print(request.data['Auth'].FILES['Profile_pic'])
         # send data to backend in this format.
         temp_data = {
             'Auth':{

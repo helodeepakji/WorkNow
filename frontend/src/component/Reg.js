@@ -38,14 +38,13 @@ const sendFormData = (formData) => {
     username: formData.phone,
     password: formData.password,
     cpassword: formData.cpassword,
-    Profile_pic:formData.profile,
+    Profile_pic: formData.profile,
     Name: formData.name,
     Email: false,
     Is_worker: true,
     Is_customer: false,
     Gender: formData.gender,
   };
-  console.log(formData.profile.file);
 
     fetch('/regisiter', {
       method: 'POST',
@@ -71,7 +70,7 @@ const sendFormData = (formData) => {
         // Handle any errors
         console.error(error);
       });
-  console.log(formData);
+  console.log(auth);
 };
 
 const Reg = () => {
@@ -100,8 +99,11 @@ const Reg = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-// to get file uploaded in form.
-// e.target.files[0];
+
+  const handleImageChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.files[0]});
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send form data to Django backend
@@ -220,7 +222,7 @@ const Reg = () => {
                 <div>
                   <div className='cls'>
                     <span>Profile Picture</span><br></br>
-                    <input type="file" required placeholder="Your photo" name="profile" onChange={handleChange}></input>
+                    <input type="file" required placeholder="Your photo" name="profile" onChange={handleImageChange}></input>
                   </div>
                   <div className='cls gov_id'>
                     <span>Govt ID</span><br></br>
