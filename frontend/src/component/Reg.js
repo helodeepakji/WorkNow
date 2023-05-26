@@ -13,7 +13,7 @@ fetch('/get_csrf_token')
     console.error("Failed to retrieve CSRF token:", error);
   });
 
-const sendFormData = (formData) => {
+const sendFormData = (formData,profile) => {
 
   const address = {
     Area: formData.area,
@@ -34,11 +34,19 @@ const sendFormData = (formData) => {
     Age: formData.age,
   };
 
+  const file = {
+    'lastModified'     : profile.lastModified,
+    'lastModifiedDate' : profile.lastModifiedDate,
+    'name'             : profile.name,
+    'size'             : profile.size,
+    'type'             : profile.type
+  }
+
   const auth = {
     username: formData.phone,
     password: formData.password,
     cpassword: formData.cpassword,
-    Profile_pic: formData.profile,
+    Profile_pic: JSON.stringify(file),
     Name: formData.name,
     Email: false,
     Is_worker: true,
@@ -74,6 +82,7 @@ const sendFormData = (formData) => {
 };
 
 const Reg = () => {
+  const [temp_profie, setTempProfile] = useState(null);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: '',
@@ -93,7 +102,6 @@ const Reg = () => {
     salary: '',
     govidtype: 'Aadhar',
     govid: '',
-    profile: null,
   });
 
   const handleChange = (e) => {
@@ -101,13 +109,15 @@ const Reg = () => {
   };
 
   const handleImageChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.files[0]});
+    setTempProfile(e.target.files[0]);
+    
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData,temp_profie);
     // Send form data to Django backend
-    sendFormData(formData);
+    sendFormData(formData,temp_profie);
   };
 
   return (
