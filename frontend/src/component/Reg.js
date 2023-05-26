@@ -53,13 +53,7 @@ const sendFormData = (formData) => {
         'X-CSRFToken': csrfToken,
       },
       // body: JSON.stringify(formData),
-      body: JSON.stringify(
-        {
-          Address: address,
-          Worker: worker,
-          Auth: auth,
-        }
-      ),
+      body: JSON.stringify(formData),
     })
       .then((response) => response.json())
       .then((data) => {
