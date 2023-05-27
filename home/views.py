@@ -5,6 +5,7 @@ from django.middleware.csrf import get_token
 from rest_framework import generics
 from .serializer import *
 from rest_framework.response import Response
+from .utils import *
 def get_csrf_token(request):
     csrf_token = get_token(request)
     return JsonResponse({'csrfToken': csrf_token})
@@ -26,9 +27,32 @@ def loginpg(request):
 
 def signup(request):
     if request.method == 'POST':
-        # data = request.body
-        print(request.POST)
-        return JsonResponse({'message': 'Form data saved successfully'})
+        data = json.loads(request.body)
+        print(data.get('Auth',None))
+        temp_auth = data['Auth']
+        temp_customer = {
+            'Email':data['Email'],
+        }
+        print(temp_auth)
+        
+        print(temp_customer['Email'])
+        temp_auth['Gender'] = convert(temp_auth['Gender'])
+        register_auth = RegisterAuthSerializer(data=temp_auth)
+        if register_auth.is_valid(raise_exception=True):
+            print('valid')
+        register_auth.save()
+        print(register_auth.data)
+        temp_customer['Auth_ID'] = register_auth.get_id()
+        print(temp_customer)
+        register_customer = RegisterCustomerSerializer(data=temp_customer)
+        if register_customer.is_valid(raise_exception=True):
+            print('valid')
+        else:
+            register_auth.delete()
+        register_customer.save()
+        print(register_customer.data)
+        tokens = register_auth.get_tokens(register_auth.instance)
+        return JsonResponse({'message': 'Form data saved successfully','tokens':tokens})
     return render(request,'index.html')
 
 def regisiter(request):
@@ -43,7 +67,8 @@ class register(generics.CreateAPIView):
     def get(self,request):
         return render(request,'index.html')
     def post(self,request):
-
+        data = json.loads(request.body)
+        # print(data.FILES)
         print(request.data['Auth'].FILES['Profile_pic'])
         # send data to backend in this format.
         temp_data = {
@@ -89,12 +114,7 @@ class register(generics.CreateAPIView):
         print('temp_data_auth',temp_data_auth)
         print('temp_data_worker',temp_data_worker)
         print('temp_data_address',temp_data_address)
-        if temp_data_auth['Gender'] == 'male':
-            temp_data_auth['Gender'] = 'M'
-        elif temp_data_auth['Gender'] == 'female':
-            temp_data_auth['Gender'] = 'F'
-        else:
-            temp_data_auth['Gender'] = 'O'
+        temp_data_auth['Gender'] = convert(temp_data_auth['Gender'])
         # testing
         # testing
         registerAuth = RegisterAuthSerializer(data=temp_data_auth)

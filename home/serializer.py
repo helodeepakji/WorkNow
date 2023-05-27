@@ -9,7 +9,7 @@ class RegisterAuthSerializer(serializers.ModelSerializer):
     cpassword = serializers.CharField(write_only=True)
     class Meta:
         model = Auth
-        fields = ('username','password','Name','Profile_pic','Gender','Is_worker','Is_customer','cpassword')
+        fields = ('username','password','Name','Gender','Is_worker','Is_customer','cpassword')
 
     def validate(self, attrs):
         error = ''
@@ -35,7 +35,6 @@ class RegisterAuthSerializer(serializers.ModelSerializer):
         auth = Auth.objects.create(
             username = validated_data['username'],
             Name = validated_data['Name'],
-            Profile_pic = validated_data['Profile_pic'],
             Gender = validated_data['Gender'],
             Is_worker = validated_data['Is_worker'],
             Is_customer = validated_data['Is_customer'],
@@ -93,7 +92,41 @@ class WorkerSerializer(serializers.ModelSerializer):
         )
         worker.save()
         return worker
+    
+    def delete(self, validated_data):
+        worker = Worker.objects.get(Auth_ID=validated_data['Auth_ID'])
+        worker.delete()
+        return worker
 
     def get_id (self):
         id = Worker.objects.get(Auth_ID=self.validated_data['Auth_ID']).id
+        return id
+
+class RegisterCustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ('Auth_ID','Email')
+    
+    def create(self, validated_data):
+        customer = Customer.objects.create(
+            Auth_ID = validated_data['Auth_ID'],
+            Email = validated_data['Email'],
+        )
+        try:
+            customer.save()
+        except:
+            raise serializers.ValidationError("Wrong Data")
+        return customer
+
+    def validate(self, attrs):
+        if not attrs['Email']:
+            raise serializers.ValidationError("Email must be filled")
+        if Customer.objects.filter(Auth_ID=attrs['Auth_ID']).exists():
+            raise serializers.ValidationError("Customer already exists")
+        if Customer.objects.filter(Email=attrs['Email']).exists():
+            raise serializers.ValidationError("Email already exists")
+        return attrs
+
+    def get_id (self):
+        id = Customer.objects.get(Auth_ID=self.validated_data['Auth_ID']).id
         return id

@@ -26,7 +26,6 @@ class Auth(AbstractUser):
     Gender = models.CharField(max_length=10,choices=gender_choices,null=True,blank=True)
     Is_worker = models.BooleanField(default=False)
     Is_customer = models.BooleanField(default=False)
-    Profile_pic = models.ImageField(upload_to='profile_pic',null=True,blank=True)
     first_name = None
     last_name = None
     email = None
@@ -42,6 +41,7 @@ class Worker(models.Model):
     Auth_ID = models.ForeignKey(Auth,on_delete=models.CASCADE)
     Education = models.CharField(max_length=100,null=True,blank=True)
     Age = models.IntegerField()
+    Profile_pic = models.ImageField(upload_to='profile_pic',null=True,blank=True)
     Category = models.CharField(max_length=100)
     Gov_id_type = models.CharField(max_length=100,default='Aadhar')
     Gov_id = models.CharField(max_length=20,null=True,blank=True)

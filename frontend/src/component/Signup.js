@@ -19,14 +19,12 @@ const sendFormData = (formData) => {
         username : formData.phone,
         password : formData.password,
         cpassword : formData.cpassword,
-        Profile_pic : formData,
         Name : formData.name,
-        Email: formData.email,
         Is_worker : false,
         Is_customer : true,
         Gender : formData.gender,
     };
-
+    
     fetch('/signup', {
         method: 'POST',
         headers: {
@@ -34,7 +32,8 @@ const sendFormData = (formData) => {
             'X-CSRFToken': csrfToken,
         },
         body: JSON.stringify({
-            Auth:auth
+            Auth:auth,
+            Email: formData.email,
         }),
     })
         .then((response) => response.json())
