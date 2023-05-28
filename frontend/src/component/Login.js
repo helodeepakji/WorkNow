@@ -37,7 +37,7 @@ const sendFormData = (formData) => {
 const Login = () => {
 
     const [formData, setFormData] = useState({
-        phone: '',
+        username: '',
         password: '',
     });
 
@@ -66,7 +66,7 @@ const Login = () => {
                     <form className='loginform' onSubmit={handleSubmit}>
                         <div className='s3'>
                             <label>Mobile Number</label>
-                            <input type='number' placeholder='Mobile Number' name="phone" value={formData.phone} onChange={handleChange} required></input>
+                            <input type='number' placeholder='Mobile Number' name="username" value={formData.username} onChange={handleChange} required></input>
                         </div>
 
                         <div className='s3'>

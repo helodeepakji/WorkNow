@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import AllowAny
 
 from .models import *
 
@@ -130,3 +133,21 @@ class RegisterCustomerSerializer(serializers.ModelSerializer):
     def get_id (self):
         id = Customer.objects.get(Auth_ID=self.validated_data['Auth_ID']).id
         return id
+
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    permission_classes = (AllowAny,)
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # Add custom claims
+        token['username'] = user.username
+        token['Name'] = user.Name
+        token['Gender'] = user.Gender
+        token['Is_worker'] = user.Is_worker
+        token['Is_customer'] = user.Is_customer
+        
+        # ...
+
+        return token

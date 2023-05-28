@@ -6,6 +6,7 @@ from rest_framework import generics
 from .serializer import *
 from rest_framework.response import Response
 from .utils import *
+from rest_framework_simplejwt.views import TokenObtainPairView
 def get_csrf_token(request):
     csrf_token = get_token(request)
     return JsonResponse({'csrfToken': csrf_token})
@@ -18,10 +19,16 @@ def about(request):
     return render(request,'index.html')
 
 
+class loginView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
+    def get(self,request):
+        return render(request,'index.html')
+
 def loginpg(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         print(data)
+        
         return JsonResponse({'message': 'Form data saved successfully'})
     return render(request,'index.html')
 
@@ -58,7 +65,7 @@ def signup(request):
 def regisiter(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(data)
+        
         return JsonResponse({'message': 'Form data saved successfully'})
     return render(request,'index.html')
 
